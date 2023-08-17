@@ -1,8 +1,7 @@
-import { randomUUID } from 'crypto'
 import mongoose from 'mongoose'
 
 export interface Film {
-  _id: string
+  _id?: string
   title: string
   description: string
   director: string

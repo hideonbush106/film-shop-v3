@@ -13,10 +13,21 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
   await dbConnect()
+  const { title, description, director, release_date, imdbScore, nations, trailer, image } = await request.json()
   try {
-    const film = await Films.create(request.body)
-    return NextResponse.json({ message: 'success', film })
+    const body = {
+      title,
+      description,
+      director,
+      release_date,
+      imdbScore,
+      nations,
+      trailer,
+      image
+    }
+    const film = await Films.create(body)
+    return NextResponse.json({ message: 'success', film }, { status: 201 })
   } catch (error) {
-    return NextResponse.json({ message: 'error', error })
+    return NextResponse.json({ message: 'error', error }, { status: 500 })
   }
 }
