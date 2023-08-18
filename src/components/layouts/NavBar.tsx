@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Movie } from '@mui/icons-material'
-const pages = ['Home', 'Dashboard', 'Blog']
+const pages = ['Home', 'Dashboard']
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
 
 function NavBar() {
