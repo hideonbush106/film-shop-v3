@@ -1,9 +1,6 @@
-'use client'
-
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter, Roboto } from 'next/font/google'
-import { usePathname } from 'next/navigation'
+import { Inter } from 'next/font/google'
 import Footer from '~/components/layouts/Footer'
 import NavBar from '~/components/layouts/NavBar'
 
@@ -15,19 +12,12 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname()
   return (
     <html lang='en'>
       <body className={inter.className}>
-        {pathname !== '/auth' ? (
-          <>
-            <NavBar />
-            {children}
-            <Footer />
-          </>
-        ) : (
-          <>{children}</>
-        )}
+        <NavBar />
+        {children}
+        <Footer />
       </body>
     </html>
   )
